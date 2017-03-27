@@ -12,10 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-board.on("ready", () => {
-  var led = new five.Led(11);
-  // blink(morse.encode('SOS'), 0, led)
-})
 
 app.use(  express.static(__dirname+'/public'));
 
@@ -24,7 +20,13 @@ app.get('/', (req,res)=>{
 })
 
 app.post('/',(req,res)=>{
-  req.body.text
+  const text = req.body.text
+  board.on("ready", () => {
+    var led = new five.Led(11);
+    blink(text, 0, led)
+  })
+
+
 })
 app.listen(3000, ()=> {
    console.log("listening on Port 3000")
