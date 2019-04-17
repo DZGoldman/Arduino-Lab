@@ -1,19 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+
 </head>
+
 <body>
-  <form>
+  <!-- <form>
   <input id='input' type="text">
   <button id='send'>send</button>
   </form>
+
+  <form>
+    <input id='input2' type="text">
+    <button id='send2'>send</button>
+    </form>
   
-  <script src="http://code.jquery.com/jquery-latest.min.js"
-        type="text/javascript"></script>
+
+    <form action="/m" method="post">
+      First name: <input type="text"><br>
+      <input type="submit" value="Submit">
+    </form>
+
+     -->
+  <!-- ['yellow', 'red', 'white','green'] -->
+  <div id='all-buttons'>
+    <div class='button-column' id='on-buttons'>
+      <span> on</span>
+      <div class='button' color='green'>
+
+      </div>
+      <div class='button' color='red'>
+
+      </div>
+      <div class='button' color='yellow'>
+
+      </div>
+      <div class='button' color='white'>
+
+      </div>
+    </div>
+    <div class='button-column' id='off-buttons'>
+      <span> off <span>
+      <div class='button' color='green'>
+
+      </div>
+      <div class='button' color='red'>
+
+      </div>
+      <div class='button' color='yellow'>
+
+      </div>
+      <div class='button' color='white'>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <input id='morse-text' type="text">
+  <button id='morse-button'>submit</button>
+
   <script src='app.js'></script>
 </body>
+
 </html>

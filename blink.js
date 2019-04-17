@@ -1,4 +1,4 @@
-const unit = 500
+const unit = 250
 
 const blink = (letters, currentIndex, led) => {
     if (currentIndex >= letters.length) return

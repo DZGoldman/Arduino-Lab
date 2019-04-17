@@ -1,0 +1,28 @@
+body{
+    background: lightblue
+}
+
+.button{
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+}
+
+#all-buttons{
+    display: flex;
+    flex-direction: row
+}
+
+div[color="green"] {
+    background: green
+}
+div[color="white"] {
+    background: white
+}
+div[color="red"] {
+    background: red
+}
+div[color="yellow"] {
+    background: yellow
+}
