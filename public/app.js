@@ -1,47 +1,71 @@
-var root = 'http://localhost:3000'
+var root = "http://localhost:8080";
 
-window.onload =  function(){
-  console.log('ready');
+window.onload = function() {
+  document.querySelector("#morse-button").addEventListener("click", morseSubmit);
+  document.querySelector("#speak-button").addEventListener("click", speak);
 
-  // // document.querySelector('#send').addEventListener('click', 
-  //   document.querySelector('#send').addEventListener('click', ()=>{
-  //   const color =  $('#input').val()
-  //   $.post('/on', {color})
-  // })
-
-
-  //  document.querySelector('#send2').addEventListener('click', ()=>{
-  //   const color =  $('#input2').val()
-  //   $.post('/off', {color})
-  // })
+  document.querySelector('#on-buttons').addEventListener('click', turnOn)
+  document.querySelector('#off-buttons').addEventListener('click', turnOff)
+  document.querySelector('#update').addEventListener('click', update)
 
 
-  document.querySelector('#morse-button').addEventListener('click', morseSubmit)
+};
 
+let morseSubmit = async (e) => {
+  const inputNode = document.querySelector("#morse-text");
+
+  const res = await axios.post(root + "/morse", { text: inputNode.value });
+  inputNode.value = "";
+};
+
+
+let turnOn  = async (e) =>{
+  const target = e.target;
+  
+  if(!target.classList.contains('button')){
+    return
+  }
+  const color = target.getAttribute('color')
+  console.log('color', color)
+  const res = await axios.post(root + "/on", { color});
 }
 
 
-
-const  morseSubmit =  async (e)=>{
-  const inputNode = document.querySelector('#morse-text');
-
-  const data = {text: inputNode.value}
+let turnOff  = async (e) =>{
+  const target = e.target;
   
-   const res = await fetch(root + '/morse', {
-    method: 'POST', //x
-    body: JSON.stringify(data), // data can be `string` or {object}!
-    headers:{
-      'Content-Type': 'application/json'
+  if(!target.classList.contains('button')){
+    return
+  }
+  const color = target.getAttribute('color')
+  console.log('color', color)
+  const res = await axios.post(root + "/off", { color});
+}
+
+let speak = async (e)=>{
+  const inputNode = document.querySelector("#speak-text");
+
+  const res = await axios.post(root + "/speak", { text: inputNode.value });
+  inputNode.value = ""
+}
+
+
+const update = async ()=>{
+  const res = await axios.get(root + '/state')
+  res.data.forEach((obj)=>{
+
+    const node = document.querySelector(`.light-button[color=${obj.color}]`)
+    if (obj.isOn){
+      
+      node.classList.add('on')
+    } else {
+      node.classList.remove('on')
     }
   })
-
-
-  if (res.status == '200'){
-    inputNode.value = '';
-    alert('successfully sent morse code!')
-  } else {
-    alert('an error occured:', res.statusText)
-    
-  }
-  
 }
+  // if (res.status == "200") {
+  //   inputNode.value = "";
+  //   alert("successfully sent morse code!");
+  // } else {
+  //   alert("an error occured:", res.statusText);
+  // }

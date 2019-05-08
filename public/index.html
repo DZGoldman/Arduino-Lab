@@ -11,62 +11,45 @@
 </head>
 
 <body>
-  <!-- <form>
-  <input id='input' type="text">
-  <button id='send'>send</button>
-  </form>
-
-  <form>
-    <input id='input2' type="text">
-    <button id='send2'>send</button>
-    </form>
-  
-
-    <form action="/m" method="post">
-      First name: <input type="text"><br>
-      <input type="submit" value="Submit">
-    </form>
-
-     -->
-  <!-- ['yellow', 'red', 'white','green'] -->
+  <div id='top-row'>
   <div id='all-buttons'>
     <div class='button-column' id='on-buttons'>
-      <span> on</span>
-      <div class='button' color='green'>
-
-      </div>
-      <div class='button' color='red'>
-
-      </div>
-      <div class='button' color='yellow'>
-
-      </div>
-      <div class='button' color='white'>
-
-      </div>
+      <span class='heading'> on</span>
+      <div class='button' color='green'></div>
+      <div class='button' color='white'></div>
+      <div class='button' color='red'></div>
+      <div class='button' color='yellow'></div>
     </div>
+    
     <div class='button-column' id='off-buttons'>
-      <span> off <span>
-      <div class='button' color='green'>
-
-      </div>
-      <div class='button' color='red'>
-
-      </div>
-      <div class='button' color='yellow'>
-
-      </div>
-      <div class='button' color='white'>
-
-      </div>
+      <span class='heading'> off <span>
+      <div class='button' color='green'></div>
+      <div class='button' color='white'></div>
+      <div class='button' color='red'></div>
+      <div class='button' color='yellow'></div>
     </div>
-
-
   </div>
 
-  <input id='morse-text' type="text">
-  <button id='morse-button'>submit</button>
+ <div>
+  <div id='board'>
+    <div class='light-button' color='green'> </div>
+    <div class='light-button' color='white'> </div>
+    <div class='light-button' color='red'> </div>
+    <div class='light-button' color='yellow'> </div>
+  </div>
+  <button id='update'> update</button>
+  </div>
 
+  </div>
+  <br>  <br>  <br>
+  
+  <input id='morse-text' type="text" placeholder="send morse">
+  <button id='morse-button'>submit</button>
+  <input id='speak-text' type="text" placeholder="speak">
+  <button id='speak-button'>submit</button>
+  <br>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src='app.js'></script>
 </body>
 
